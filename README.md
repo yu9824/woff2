@@ -1,23 +1,48 @@
-﻿convert ttf to woff2.
+﻿# woff2
+Convert ttf to woff2 and vice versa.
+
+woff2 is a compressed file that is mainly used for using fonts on websites.
+
+If the file is still too large after this compression, you may need to 'subset' the original ttf file - extract only the fonts you need.
+For example, you can use [サブセットフォントメーカー](https://opentype.jp/subsetfontmk.htm).
 
 ## Build
+```bash
+git clone --recursive https://github.com/yu9824/woff2.git   # clone with submodule, brotli
 ```
-git clone --recursive https://github.com/yu9824/woff2.git
-cd woff2
-sh docker/build.sh
-sh docker/run.sh
-make clean all
+
+```bash
+cd woff2    # change directory to the cloned one
 ```
+
+```bash
+sh docker/build.sh  # build docker image
+```
+
+```bash
+sh docker/run.sh    # run docker container
+```
+docker containerでbashを起動したタイミングで，`make clean all`が実行され，自動的に以下のRunコマンドが実行できるようになる．
 
 ## Run
 
 Ensure the binaries from the build process are in your $PATH, then:
-
+### Compress (ttf → woff2)
 ```
 woff2_compress myfont.ttf
+```
+
+### Decompress (woff2 → ttf)
+```
 woff2_decompress myfont.woff2
 ```
 
+## Changes from the original repository
+- Create docker image and container
+- Change git settings to ignore submodules changes when build commands.
+    ```bash
+    git config --local diff.ignoreSubmodules dirty
+    ```
 
 forked from [google/woff2](https://github.com/google/woff2)
 > This is a README for the font compression reference code. There are several
