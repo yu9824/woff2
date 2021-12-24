@@ -43,6 +43,7 @@ woff2_decompress myfont.woff2
     ```bash
     git config --local diff.ignoreSubmodules dirty
     ```
+- Change the branch name from master to main.
 
 forked from [google/woff2](https://github.com/google/woff2)
 > This is a README for the font compression reference code. There are several
