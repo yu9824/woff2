@@ -8,11 +8,15 @@ ENV TZ="Asia/Tokyo"
 # Install packages
 RUN apt-get update && apt-get install -y vim && apt-get install -y make && apt-get install -y zip unzip
 
-# Add user
+# Add and change user
 ARG user_name
 RUN useradd -m ${user_name}
 USER ${user_name}
 
+# Change directory
 ARG dir_name
 ARG user_home_dir=/home/${user_name}
 WORKDIR ${user_home_dir}/${dir_name}/
+
+# Make commands
+RUN echo 'make clean all' >> ~/.bashrc
