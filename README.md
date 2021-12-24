@@ -4,7 +4,7 @@ Convert ttf to woff2 and vice versa.
 woff2 is a compressed file that is mainly used for using fonts on websites.
 
 If the file is still too large after this compression, you may need to 'subset' the original ttf file - extract only the fonts you need.
-For example, you can use [サブセットフォントメーカー](https://opentype.jp/subsetfontmk.htm).
+For example, you can use [サブセットフォントメーカー (Subset font maker)](https://opentype.jp/subsetfontmk.htm).
 
 ## Build
 ```bash
@@ -22,7 +22,8 @@ sh docker/build.sh  # build docker image
 ```bash
 sh docker/run.sh    # run docker container
 ```
-docker containerでbashを起動したタイミングで，`make clean all`が実行され，自動的に以下のRunコマンドが実行できるようになる．
+
+When bash is started in a docker container, `make clean all` is automatically executed, and the following Run commands can be executed.
 
 ## Run
 
